@@ -1,0 +1,15 @@
+definitions:
+  services:
+    docker:
+      memory: 2048
+  steps:
+    step: &build-test-deploy
+      name: Build Client and Server
+      script:
+        - docker build -t client -f ./client/Dockerfile ./client
+        - docker build -t server -f ./server/Dockerfile ./server
+
+pipelines:
+  pull-requests:
+    "**":
+      - step: *build-test-deploy
