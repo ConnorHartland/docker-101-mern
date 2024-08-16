@@ -13,3 +13,11 @@ pipelines:
   pull-requests:
     "**":
       - step: *build-test-deploy
+
+  custom:
+    deploy:
+      - step: *build-test-deploy
+        name: Deploy to AWS
+        deployment: production
+        script:
+          - echo "Deploying to AWS"
