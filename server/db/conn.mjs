@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 
-const connectionString = process.env.ATLAS_URI || ''
+
+const connectionString = process.env.ATLAS_URI 
+console.log('connecting', connectionString)
 
 mongoose
   .connect(connectionString, {
